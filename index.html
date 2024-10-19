@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="container1">
+            <div class="music-player">
+                <nav>
+                    <div class="circle">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="circle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </nav>
+                <img src="media/th.png" class="song-img">
+                <h1>Idol</h1>
+                <p>BTS</p>
+    
+                <audio id="song1">
+                    <source src="media/IDOL.mp3" type="audio/mpeg">
+                </audio>
+                <input type="range" value="0" id="progress1">
+    
+                <div class="controls">
+                    <div><i class="fa-solid fa-backward"></i></div>
+                    <div onclick="playPause1()"><i class="fa-solid fa-play" id="icon1"></i></div>
+                    <div><i class="fa-solid fa-forward"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="music-player">
+                <nav>
+                    <div class="circle">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="circle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </nav>
+                <img src="media/th2.png" class="song-img">
+                <h1>Standing Next To You</h1>
+                <p>BTS-Jeon Jungkook</p>
+                <audio id="song2">
+                    <source src="media/Standing Next to You.mp3" type="audio/mpeg">
+                </audio>
+                <input type="range" value="0" id="progress2">
+                <div class="controls">
+                    <div><i class="fa-solid fa-backward"></i></div>
+                    <div onclick="playPause2()"><i class="fa-solid fa-play" id="icon2"></i></div>
+                    <div><i class="fa-solid fa-forward"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container0">
+        <div class="container3">
+            <div class="music-player">
+                <nav>
+                    <div class="circle">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="circle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </nav>
+                <img src="media/th1.png" class="song-img1">
+                <h1>ON</h1>
+                <p>BTS</p>
+                <audio id="song3">
+                    <source src="media/ON.mp3" type="audio/mpeg">
+                </audio>
+                <input type="range" value="0" id="progress3">
+                <div class="controls">
+                    <div><i class="fa-solid fa-backward"></i></div>
+                    <div onclick="playPause3()"><i class="fa-solid fa-play" id="icon3"></i></div>
+                    <div><i class="fa-solid fa-forward"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container4">
+            <div class="music-player">
+                <nav>
+                    <div class="circle">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="circle">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </nav>
+                <img src="media/selena.png" class="song-img1">
+                <h1>Calm Down</h1>
+                <p>Selena Gomez</p>
+                <audio id="song4">
+                    <source src="media/Calm Down.mp3" type="audio/mpeg">
+                </audio>
+                <input type="range" value="0" id="progress4">
+                <div class="controls">
+                    <div><i class="fa-solid fa-backward"></i></div>
+                    <div onclick="playPause4()"><i class="fa-solid fa-play" id="icon4"></i></div>
+                    <div><i class="fa-solid fa-forward"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let progress1 = document.getElementById("progress1");
+        let song1 = document.getElementById("song1");
+        let icon1 = document.getElementById("icon1");
+
+        let progress2 = document.getElementById("progress2");
+        let song2 = document.getElementById("song2");
+        let icon2 = document.getElementById("icon2");
+        
+        let progress3 = document.getElementById("progress3");
+        let song3 = document.getElementById("song3");
+        let icon3 = document.getElementById("icon3");
+
+        let progress4 = document.getElementById("progress4");
+        let song4 = document.getElementById("song4");
+        let icon4 = document.getElementById("icon4");
+ 
+ 
+        song1.onloadedmetadata = function(){
+            progress1.max = song1.duration;
+            progress1.value = song1.currentTime;
+        }
+
+        song2.onloadedmetadata = function(){
+            progress2.max = song2.duration;
+            progress2.value = song2.currentTime;
+        }
+    
+        song3.onloadedmetadata = function(){
+            progress3.max = song3.duration;
+            progress3.value = song3.currentTime;
+        }
+        
+        song4.onloadedmetadata = function(){
+            progress4.max = song4.duration;
+            progress4.value = song4.currentTime;
+        }
+         
+        function playPause1(){
+            if(icon1.classList.contains("fa-pause")){
+               song1.pause();
+               icon1.classList.remove("fa-pause");
+               icon1.classList.add("fa-play");
+            }
+            else{
+                song1.play();
+                icon1.classList.add("fa-pause");
+                icon1.classList.remove("fa-play");
+            }
+         }
+
+         if(song1.play()){
+            setInterval(()=>{
+                progress1.value =song1.currentTime;
+            },500);
+         }
+
+         progress1.onchange = function(){
+            song1.play();
+            song1.currentTime = progress1.value;
+            icon1.classList.add("fa-pause");
+            icon1.classList.remove("fa-play");
+         }
+
+         function playPause2(){
+            if(icon2.classList.contains("fa-pause")){
+               song2.pause();
+               icon2.classList.remove("fa-pause");
+               icon2.classList.add("fa-play");
+            }
+            else{
+                song2.play();
+                icon2.classList.add("fa-pause");
+                icon2.classList.remove("fa-play");
+            }
+        }
+
+        if(song2.play()){
+            setInterval(()=>{
+                progress2.value =song2.currentTime;
+            },500);
+        }
+
+        progress2.onchange = function(){
+        song2.play();
+        song2.currentTime = progress2.value;
+        icon2.classList.add("fa-pause");
+        icon2.classList.remove("fa-play");
+        }
+
+        function playPause3(){
+            if(icon3.classList.contains("fa-pause")){
+               song3.pause();
+               icon3.classList.remove("fa-pause");
+               icon3.classList.add("fa-play");
+            }
+            else{
+                song3.play();
+                icon3.classList.add("fa-pause");
+                icon3.classList.remove("fa-play");
+           }
+        }
+
+        if(song3.play()){
+            setInterval(()=>{
+                progress3.value =song3.currentTime;
+            },500);
+        }
+
+        progress3.onchange = function(){
+        song3.play();
+        song3.currentTime = progress3.value;
+        icon3.classList.add("fa-pause");
+        icon3.classList.remove("fa-play");
+        }
+    
+        function playPause4(){
+            if(icon4.classList.contains("fa-pause")){
+               song4.pause();
+               icon4.classList.remove("fa-pause");
+               icon4.classList.add("fa-play");
+            }
+            else{
+                song4.play();
+                icon4.classList.add("fa-pause");
+                icon4.classList.remove("fa-play");
+           }
+        }
+
+        if(song4.play()){
+             setInterval(()=>{
+                 progress4.value = song4.currentTime;
+             },500);
+        }
+
+        progress4.onchange = function(){
+        song4.play();
+        song4.currentTime = progress4.value;
+        icon4.classList.add("fa-pause");
+        icon4.classList.remove("fa-play");
+        }
+    </script>
+
+</body>
+</html>
